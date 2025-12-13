@@ -1,0 +1,6 @@
+export EDITOR=/usr/bin/nvim
+#export VISUAL=/usr/bin/neovide
+export SUDO_EDITOR=/usr/bin/nvim
+
+
+export ZSH="/usr/share/oh-my-zsh"

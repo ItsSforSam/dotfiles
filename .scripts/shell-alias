@@ -1,0 +1,45 @@
+# This has to be POSIX shell compatible so both bash and zsh can use this 
+alias ls='ls -l --color=auto'
+alias grep='grep --color=auto'
+
+# Allows alias to be used with sudo
+alias sudo="sudo "
+
+
+## Package Managers
+# I use arch and found pms a good alais for me
+# it stands for pacman -S
+alias pms="paru -S"
+# allows AUR packages to be upgraded
+alias pms-upgrade="paru -Syu"
+alias pm="paru"
+# this allows you to find what package a file came from
+alias pm-owner="paru -Qo"
+alias pms-clean="paru -Sc"
+# alias pms-unsafe-clean-all="pacman "
+
+# Vim no emacs here
+alias ovim="/usr/bin/vim "
+alias neovim="nvim"
+alias vim="nvim"
+alias powershell="pwsh" # 
+alias wiztree="baoab $@ & disown"
+
+# System adminastrated
+#
+# sudo is used to prompt for password
+# TODO: Just have didicated askpass program to validate password and not require
+# 	someone to be a sudoer to just reboot their computer
+alias reboot="sudo -k -p 'Type password to confirm reboot' systemctl reboot "
+alias halt="sudo -k -p 'Type password to confirm halt'  systemctl halt"
+alias poweroff="sudo  -k -p 'Type password to confirm shutdown' systemctl poweroff"
+alias shutdown="sudo  -k -p 'Type password to confirm shutdown' systemctl poweroff"
+
+# mkinitcpio could never work without root but setting setpid bit is dumb
+alias mkinitcpio="sudo mkinitcpio "
+# https://wiki.archlinux.org/title/Power_management/Wakeup_triggers#Last_wakeup_trigger_source
+alias last-wake-up="dmidecode -t system | grep -P '\tWake-up Type\: '"
+
+alias test-plymouth="sudo plymouthd; sudo plymouth --show-splash; sleep 5; sudo plymouth --quit"
+
+alias cd="z"
