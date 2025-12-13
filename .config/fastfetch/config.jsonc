@@ -36,7 +36,7 @@
     "type": "kitty",
     // "color": {},
     "padding": {"left": 2,"top": 2,"right": 2},
-    "source": "~/.local/fastfetch/logos/arch.png",
+    "source": "~/.local/share/fastfetch/logos/arch.png",
     "preserveAspectRatio": false,
     "width": 17
     
