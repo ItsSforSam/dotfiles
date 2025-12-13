@@ -1,0 +1,288 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  // how info is displayed
+  "display": {
+    "key": {
+      // "width": 12, 
+      "type": "string"
+    },
+    "separator": " -> ",
+    "constants": [
+      // ──
+      "---------------------------------"
+    ],
+    // stops the need of passing the flag
+    // but it can show errors if no media
+    // is playing or no bluetooth devices connected
+    // "showErrors": true,
+    "bar": {
+      "width": 10,       // Width of percentage bars
+      "char":{
+		    "elapsed": "■", // Character for elapsed portion
+        "total": "-"    // Character for total portion
+		
+      }
+        
+  },
+  "temp": {"unit": "F"},
+  
+  "brightColor":true
+  
+  },
+  // "logo":{
+  //   "type":"auto"
+  // },
+  "logo":{
+    "type": "kitty",
+    // "color": {},
+    "padding": {"left": 2,"top": 2,"right": 2},
+    "source": "~/.local/fastfetch/logos/arch.png",
+    "preserveAspectRatio": false,
+    "width": 17
+    
+  },
+  "modules": [
+    "break",
+    {
+      "type":"title",
+      "format":"Hello, {full-user-name} ({user-name})",
+      "outputColor": "blue"
+    },
+    "separator",
+
+    {
+      "type":"os",
+      "key":"OS {icon}",
+      "format": "{pretty-name} {arch} {version-id}"
+    },
+    
+    {
+      "type": "kernel",
+      "key": "Kernel",
+      "format": "{sysname} {release}{~-3,} for {arch}"
+      // "format":"{6}"
+    },
+
+    {
+      "type": "host",
+      "key": "Platform {icon}",
+      "format": "{vendor} {name}"
+    },
+    // {
+    //   "type": "bootmgr",
+    //   "format": "{name} [SecureBoot {?secure-boot}enabled{?}{/secure-boot}disabled{/}]"
+    // },
+    {
+      "type": "bios",
+      "key": "BIOS {icon}",
+      "format": "{vendor} {version} [{type}]"
+    },
+    // {
+    //   "type": "chassis",
+    //   "format": "{vendor} {type} {version}"
+    // },
+    {
+      "type":"uptime",
+      "key":"Uptime {icon}"
+    },
+    "break",
+    // {
+    //   "type": "packages",
+    //   "format": "Pacman: {pacman} | flatpacks: {flatpak-user} | flatpacks-sys: {flatpak-system} | Total: {all}"
+    // },
+    {
+      "type": "packages",
+      "key": "Pacman {icon}",
+      "keyIcon": "\udb82\udfaf",
+      "format": "{Pacman}"
+    },
+    {
+      "type": "packages",
+      "key": "Flatpak {icon}",
+      "keyIcon": "\udb80\udfd6",
+      "format": "{?flatpak-user}{/flatpak-system} User: {/}{flatpak-user}{/flatpak-system} | {/}{?}{?flatpak-system}{/flatpak-user}System:{/}{flatpak-system}{?}"
+    },
+    // {
+    //   "type": "packages",
+    //   "key": "Flatpak (system) {icon}",
+    //   "keyIcon": "\udb80\udfd6",
+    //   "format": "{flatpak-system}"
+    // },
+    {
+      "type": "packages",
+      "key": "Total Packages {icon}",
+      "keyIcon": "\udb80\udfd4",
+      "format": "{all}"
+    },
+    "break",
+
+
+    // "packages",
+    {
+      "type":"shell",
+      "key": "Shell {icon}"
+    },
+    {
+      "type":"display",
+      "key": "Display [{type}] {icon}",
+      "format": "{name} - {preferred-width}x{preferred-height} @ {preferred-refresh-rate} ; {?hdr-compatible} HDR available {?hdr-enabled}and enabled{/hdr-enabled} but not enabled{/}{?}{/hdr-compatible}HDR unavailable{/}"
+    
+    },
+    // {"detectPlugin": false},
+    // "de",
+    {
+      "type": "de",
+      "key": "Desktop-Environment {icon}",
+      // the process name looked better then pretty name
+      "format": "{pretty-name} {version}"
+    },
+    {
+      "type": "wm",
+
+      "format": "{protocol-name} {pretty-name} {version} {?plugin-name}  with {plugin-name}"
+    },
+    
+    // "wmtheme",
+    {
+      "type": "wmtheme",
+      "key": "WM-Theme {icon}",
+      "format": "{}" // only one way to format this :(
+    },
+    // "theme",
+    {
+      "type": "theme",
+      "key": "Theme {icon}",
+      "format": "{theme1}"
+    },
+    {
+      "type": "icons",
+      "key": "Icons {icon}",
+      "format": "{icons1}"
+    },
+    // "icons",
+    // "font",
+    {
+      "type": "font",
+      "key":"Font {icon}",
+      "format": "{font1}"
+    },
+    {
+      "type": "vulkan",
+      "format": "{driver} - {api-version} - {conformance-version} - {instance-version}"
+    },
+    // "cursor",
+    {
+      
+      "type":"terminal",
+      "keyIcon": "󱙝",
+      "key": "Term {icon}",
+      "format": "{pretty-name}"
+    },
+    {
+      "type":"terminalfont",
+      // "keyIcon": "󱙝",
+      "key": "Term Font {icon}",
+      "format": "{name}"
+    },
+    {
+      "type": "cpu",
+      "key":"CPU {icon}",
+      "format": "{vendor} {name} > {cores-logical} cores"
+    },
+    // "cpu",
+    {
+      "type":"gpu",
+      "key":"GPU {icon}",
+      "format": " {vendor} {name} using {driver} driver @ {frequency}"
+    },
+    
+    {
+      "type": "memory",
+      "percent": {
+          "type": 9,     // Show both percentage number and bar
+          "green": 30,   // Values below 30% in green
+          "yellow": 70   // 30-70% in yellow, >70% in red
+        },
+        
+        "format": "{percentage-bar} {used}/{total} ({percentage})"
+    },
+    {
+      "type": "swap",
+      "percent": {
+          "type": 9,     // Show both percentage number and bar
+          "green": 30,   // Values below 30% in green
+          "yellow": 70   // 30-70% in yellow, >70% in red
+        },
+        "format": "{percentage-bar} {used}/{total} ({percentage})"
+    },
+    // "swap",
+    // "disk",
+    {
+      "type": "disk",
+      // If displayname of drive is set, then show name, otherwise, show the mounting location
+      "key":"Disk {?name}({name}){?}{/name}({mountpoint}){/}",
+      "format":"{?is-readonly}A read-only {?}{/is-readonly}A writable {/}{?is-external}external{?}{/is-external}internal{/} drive {size-used}/{size-total} [{filesystem}]"
+    },
+    // "localip",
+    {
+      "type": "battery",
+      "key": "{icon}",
+      "format": "{capacity-bar} ({capacity}) [{status}{}]",
+      "percent": {
+        "type":3,
+        "yellow": 50,
+        "green": 90
+      }
+    },
+    {
+      "type": "bluetooth",
+      "key":"{icon}",
+      "format": "{name} - {type} {?battery-percentage}({battery-percentage}){?} [{?connected}Connected{?}{/connected}Disconnected{/}]"
+    },
+    // "battery",
+    // I've determined that laptops just
+    // don't work with this maybe
+    // "poweradapter",
+
+    // "locale",
+    {
+      "type": "sound",
+      "key": "Sound Handler",
+      "format": "{platform-api}"
+    },
+    {
+      "type": "sound",
+      "key": "Sound Output",
+      "format": "{name} [{volume-percentage}]",
+      "percent": {
+        "type":9,
+        "yellow": 90,
+        "green": 60
+      }
+    },
+    {
+      "type": "player",
+      "key": "Audio {icon}",
+      "format": "{player} {name} {?url}@ {url}{?}"
+    },
+    {
+      "type": "media",
+      "key": "Current Media {icon}",
+      "format":"{title} by {artist}{?album} apart of {album}{?} [{status}]"
+    },
+    "break",
+    // {
+    //   "key": ""
+    // },
+    // {
+    //   "type":"colors"
+    //   // "block": {}
+    // },
+    {
+      "type": "custom",                                                           // cut here
+      "format": " {#90}  {#31}  {#32}  {#33}  {#34}  {#35}  {#36}  {#37}  {#38} \t {#39}  {#90}  {#31}  {#32}  {#33}  {#34}  {#35}  {#36}  {#37}  {#38}  {#39}  "
+    }
+    
+  ],
+  
+}
