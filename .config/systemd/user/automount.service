@@ -1,0 +1,10 @@
+[Unit]
+description=Auto-mounts my drives
+requires=
+[Service]
+Type=oneshot
+ExecStart="%h/.scripts/automount.sh"
+# This
+RemainAfterExit=yes
+[Install]
+WantedBy=plasma-polkit-agent.service
