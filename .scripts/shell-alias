@@ -10,8 +10,8 @@ alias sudo="sudo "
 # I use arch and found pms a good alais for me
 # it stands for pacman -S
 alias pms="paru -S"
-# allows AUR packages to be upgraded
-alias pms-upgrade="paru -Syu"
+# allows AUR packages to be upgraded, and updates flatpacks as well
+alias pms-upgrade="paru -Syu & flatpak update"
 alias pm="paru"
 # this allows you to find what package a file came from
 alias pm-owner="paru -Qo"
