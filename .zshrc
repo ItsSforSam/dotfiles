@@ -24,9 +24,10 @@ promptinit
 
 # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
 #source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [[ -f "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
+	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 # https://unix.stackexchange.com/questions/58870/ctrl-left-right-arrow-keys-issue
-
 # You can get the what the terminal send by runing cat and using your keystrokes
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
@@ -46,10 +47,13 @@ plugins=(git archlinux sudo systemd)
 
 
 # Sources other files
-#source ~/.scripts/zsh-env
-source ~/.scripts/zsh-env
-source "$ZSH/oh-my-zsh.sh"
 
+source ~/.scripts/zsh-env
+
+# stopping from souring oh-my-zsh if directory doesn't exist
+if [[ -d "$ZSH" ]]; then
+	source "$ZSH/oh-my-zsh.sh"
+fi
 
 
 
