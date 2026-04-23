@@ -44,8 +44,6 @@ PROMPT="%(?.%F{green}✔.%F{red}%?) %f[%F{blue}%n%f@%M%: %F{cyan}%~%f]%#➤ "
 ZSH_THEME="sammy" # set by `omz`
 plugins=(git archlinux sudo systemd)
 
-
-
 # Sources other files
 
 source ~/.scripts/zsh-env
